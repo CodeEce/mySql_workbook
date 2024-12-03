@@ -1,0 +1,28 @@
+SHOW DATABASES;
+SHOW TABLES;
+
+create user 'username'@'localhost' IDENTIFIED BY 'password';
+
+SELECT USER,HOST FROM MYSQL.USER;
+SHOW GRANTS;
+SHOW GRANTS FOR 'USERNAME'@'HOSTNAME';
+
+-- C:\Program Files\MySQL\MySQL Server 8.0\bin
+GRANT SELECT ON * .* TO 'USERNAME'@'PASSWORD';
+GRANT SELECT ON TESTDB.customer TO 'vino'@'localhost';
+GRANT update(pQty,selPrice,gst) ON TESTDB.home TO 'vino'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON testdb.customer TO 'vino'@'localhost';
+
+ GRANT ALL privileges ON *.* TO  'USERNAME'@'PASSWORD';
+ GRANT ALL privileges ON *.* TO  'USERNAME'@'PASSWORD' WITH GRANT OPTION;
+ 
+ REVOKE select ON  TESTDB.customer FROM 'vino'@'localhost';
+ REVOKE update(pQty,selPrice,gst) ON TESTDB.home FROM 'vino'@'localhost';
+ REVOKE ALL PRIVILEGES,GRANT OPTION FROM 'vino'@'localhost';
+ 
+ ALTER USER 'USERNAME'@'HOSTNAME' IDENTIFIED BY 'NEWPASSWORD';  #PASWORD CHANGE
+ 
+ USE MYSQL;
+ UPDATE USER SET USER ='NEW_USERNAME' WHERE USER ='OLD_USERNAME'; #CHANGE USER NAME
+ 
+ DROP USER 'USERNAME'@'HOSTNAME';
